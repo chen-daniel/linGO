@@ -1,9 +1,10 @@
-const client = require("../../db/postgres");
+const client = require('../../db/postgres');
 
-module.exports = function(app) {
-    app.get("/api/user", findAllUsers);
+module.exports = async function(app) {
+  app.get('/api/user', findAllUsers);
 
-    function findAllUsers() {
-        client.query("SELECT * FROM account").then(res => console.log(res));
-    }
-}
+  async function findAllUsers(req, res) {
+    const allAccounts = await client.query('SELECT * FROM account');
+    res.json(allAccounts.rows);
+  }
+};

@@ -32,3 +32,4 @@ var userService = require("./service/user/user.service");
 userService(app);
 
 app.listen(PORT);
+console.log("App is now listening on port 4000");
