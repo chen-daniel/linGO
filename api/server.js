@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 
 var pg = require('pg');
 
-const connectionString = 'https://lingo.cqaydiju3hhf.us-east-2.rds.amazonaws.com';
+const connectionString = 'pw';
 
 const client = new pg.Client(connectionString);
 
@@ -35,5 +35,8 @@ app.use(
         secret: "any string"
     })
 );
+
+var userService = require("./service/user/user.service");
+userService(app);
 
 app.listen(PORT);
