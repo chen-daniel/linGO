@@ -1,14 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 
-var pg = require('pg');
-
-const connectionString = 'pw';
-
-const client = new pg.Client(connectionString);
-
-client.connect();
-
 const app = express();
 
 app.use(bodyParser.json());
